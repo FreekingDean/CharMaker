@@ -1,0 +1,2 @@
+class ArmorWeaponProficiency < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class PrimaryAbility < ApplicationRecord
+end

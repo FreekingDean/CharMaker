@@ -1,0 +1,2 @@
+class SavingThrowProficiency < ApplicationRecord
+end
