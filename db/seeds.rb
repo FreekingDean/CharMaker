@@ -9,3 +9,17 @@
 #     { name: 'Star Wars' }, { name: 'Lord of the Rings' }
 #   ])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+Alignment.create(
+  %w(
+    Lawful-Good
+    Lawful-Neutral
+    Lawful-Evil
+    Neutral-Good
+    Neutral-Neutral
+    Neutral-Evil
+    Chaotic-Good
+    Chaotic-Neutral
+    Chaotic-Evil
+  )
+)
