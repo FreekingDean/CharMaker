@@ -1,29 +1,7 @@
-= form_for(character) do |f|
-  - if character.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(character.errors.count, "error")
-        prohibited this character from being saved:
-      %ul
-        - character.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :height
-    = f.number_field :height
-  .field
-    = f.label :weight
-    = f.number_field :weight
-  .field
-    = f.label :race_id
-    = f.number_field :race_id
-  .field
-    = f.label :hero_class_id
-    = f.number_field :hero_class_id
-  .field
-    = f.label :experience
-    = f.number_field :experience
-  .actions
-    = f.submit
+= form_for character, {class: 'inline'} do |f|
+  .form-group.label-floating
+    = f.label :name, class: 'control-label'
+    = f.text_field :name, class: 'form-control'
+  .form-group.label-floating
+    = f.label :name, class: 'control-label'
+    = f.text_field :name, class: 'form-control'
