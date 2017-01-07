@@ -6,7 +6,7 @@ class CreateCharacters < ActiveRecord::Migration[5.0]
       t.integer :weight
       t.integer :race_id
       t.integer :hero_class_id
-      t.integer :experience
+      t.integer :experience, default: 0, null: false
 
       t.timestamps
     end

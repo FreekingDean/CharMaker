@@ -17,7 +17,7 @@ gem 'jbuilder'
 gem 'sass-rails'
 gem 'uglifier'
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'bcrypt'
@@ -25,6 +25,7 @@ gem 'bcrypt'
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'awesome_print'
   gem 'rubocop'
 end
 
@@ -40,4 +41,7 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-material-design'
+  gem 'rails-assets-microplugin'
+  gem 'rails-assets-sifter'
+  gem 'rails-assets-selectize'
 end

@@ -1,2 +1,69 @@
-= render 'form', character: @character
-= link_to 'Back', characters_path
+.container
+  .row
+    .col-md-10.col-md-offset-1
+      .well
+        %h1 Create Character
+        - @character.errors.full_messages.each do |error_message|
+          .alert.alert-dismissable.alert-danger
+            %button{type: 'button', class: 'close', data: {dismiss: 'alert'}}
+              &times;
+            =error_message
+        = form_for @character, html: {class: 'form-inline'} do |f|
+          #step-1.builder-step{style: ''}
+            .row
+              = render('characters/character_builder/choose_race', f: f)
+            .row
+              .pull-right
+                %button{type: 'button', onclick: 'goto_step(2);', class: 'btn btn-raised btn-success'}
+                  Next
+          #step-2.builder-step{style: 'display: none;'}
+            .row
+              = render('characters/character_builder/choose_class', f: f)
+            .row
+              .pull-left
+                %button{type: 'button', onclick: 'goto_step(1);', class: 'btn btn-raised btn-success'}
+                  Back
+              .pull-right
+                %button{type: 'button', onclick: 'goto_step(3);', class: 'btn btn-raised btn-success'}
+                  Next
+          #step-3.builder-step{style: 'display: none;'}
+            .row
+              = render('characters/character_builder/determine_ability_scores', f: f)
+            .row
+              .pull-left
+                %button{type: 'button', onclick: 'goto_step(2);', class: 'btn btn-raised btn-success'}
+                  Back
+              .pull-right
+                %button{type: 'button', onclick: 'goto_step(4);', class: 'btn btn-raised btn-success'}
+                  Next
+          #step-4.builder-step{style: 'display: none;'}
+            .row
+              = render('characters/character_builder/choose_background', f: f)
+            .row
+              .pull-left
+                %button{type: 'button', onclick: 'goto_step(3);', class: 'btn btn-raised btn-success'}
+                  Back
+              .pull-right
+                %button{type: 'button', onclick: 'goto_step(5);', class: 'btn btn-raised btn-success'}
+                  Next
+          #step-5.builder-step{style: 'display: none;'}
+            .row
+              = render('characters/character_builder/choose_alignment', f: f)
+            .row
+              .pull-left
+                %button{type: 'button', onclick: 'goto_step(4);', class: 'btn btn-raised btn-success'}
+                  Back
+              .pull-right
+                %button{type: 'button', onclick: 'goto_step(6);', class: 'btn btn-raised btn-success'}
+                  Next
+
+:javascript
+  current_step = '#{params[:step].to_s || 0}'
+  if (current_step != '0') {
+    goto_step(current_step)
+  }
+  function goto_step(step_num) {
+    $('.builder-step').hide()
+    $('#step-'+step_num).show()
+    window.history.pushState("new_step", "Character Builder", "?step="+step_num);
+  }

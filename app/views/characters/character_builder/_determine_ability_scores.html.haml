@@ -1,0 +1,11 @@
+.col-xs-12
+  .row
+    %button.btn.btn-raised.btn-warning{type: 'button'}
+      Use Standard Values
+    %button.btn.btn-raised.btn-primary{type: 'button'}
+      Roll Random
+  .row
+    -AbilityScoreType.all.each do |ability_score_type|
+      .form-group.label-floating
+        =f.label ability_score_type.symbolize_name, class: 'control-label'
+        =f.number_field ability_score_type.symbolize_name, class: 'form-control'

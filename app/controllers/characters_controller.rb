@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/new
   def new
-    @character = Character.new
+    @character = current_user.player.characters.new
   end
 
   # GET /characters/1/edit
@@ -26,14 +26,10 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
 
-    respond_to do |format|
-      if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render :show, status: :created, location: @character }
-      else
-        format.html { render :new }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    if @character.save
+      redirect_to @character
+    else
+      render :new
     end
   end
 
@@ -69,6 +65,13 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:name, :height, :weight, :race_id, :hero_class_id, :experience)
+      params.require(:character).permit(
+        :name,
+        :height,
+        :weight,
+        :race_id,
+        :hero_class_id,
+        :experience
+      )
     end
 end

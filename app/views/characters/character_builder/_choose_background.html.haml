@@ -1,0 +1,8 @@
+.col-xs-12
+  %h3 Choose Background
+.btn-group{data: {toggle: 'buttons'}}
+  =f.collection_radio_buttons :background_id, Background.all, :id, :name do |b|
+    .col-md-2
+      =b.label class: 'btn btn-warning' do
+        =b.radio_button + image_tag('race_placeholder.jpg')
+      %h3.text-center= b.object.name

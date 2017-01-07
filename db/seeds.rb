@@ -10,16 +10,66 @@
 #   ])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-Alignment.create(
-  %w(
-    Lawful-Good
-    Lawful-Neutral
-    Lawful-Evil
-    Neutral-Good
-    Neutral-Neutral
-    Neutral-Evil
-    Chaotic-Good
-    Chaotic-Neutral
-    Chaotic-Evil
-  )
-)
+Race.create([
+  { name: 'Dwarf' },
+  { name: 'Elf' },
+  { name: 'Halfling' },
+  { name: 'Human' },
+  { name: 'Dragonborn' },
+  { name: 'Gnome' },
+  { name: 'Half-Elf' },
+  { name: 'Half-Orc' },
+  { name: 'Tiefling' }
+])
+
+HeroClass.create([
+  { name: 'Barbarian' },
+  { name: 'Bard' },
+  { name: 'Cleric' },
+  { name: 'Druid' },
+  { name: 'Fighter' },
+  { name: 'Monk' },
+  { name: 'Paladin' },
+  { name: 'Ranger' },
+  { name: 'Rogue' },
+  { name: 'Sourcerer' },
+  { name: 'Warlock' },
+  { name: 'Wizard' }
+])
+
+Alignment.create([
+  { name: 'Lawful-Good' },
+  { name: 'Lawful-Neutral' },
+  { name: 'Lawful-Evil' },
+  { name: 'Neutral-Good' },
+  { name: 'Neutral-Neutral' },
+  { name: 'Neutral-Evil' },
+  { name: 'Chaotic-Good' },
+  { name: 'Chaotic-Neutral' },
+  { name: 'Chaotic-Evil' }
+])
+
+Background.create([
+  { name: 'Acolyte' },
+  { name: 'Charlatan' },
+  { name: 'Criminal' },
+  { name: 'Entertainer' },
+  { name: 'Folk Hero' },
+  { name: 'Guild Artisan' },
+  { name: 'Hermit' },
+  { name: 'Noble' },
+  { name: 'Outlander' },
+  { name: 'Sage' },
+  { name: 'Sailor' },
+  { name: 'Soldier' },
+  { name: 'Urchin' }
+])
+
+AbilityScoreType.create([
+  { name: 'Strength' },
+  { name: 'Dexterity' },
+  { name: 'Constitution' },
+  { name: 'Intelligence' },
+  { name: 'Wisdom' },
+  { name: 'Charisma' }
+])

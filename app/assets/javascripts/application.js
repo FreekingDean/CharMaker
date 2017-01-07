@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap
 //= require bootstrap-material-design
+//= require microplugin
+//= require sifter
+//= require selectize
+//
+//= require_tree .

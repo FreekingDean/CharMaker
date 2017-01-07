@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106222411) do
+ActiveRecord::Schema.define(version: 20170107183018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20170106222411) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ability_scores", force: :cascade do |t|
+    t.integer  "ability_score_type_id"
+    t.integer  "score"
+    t.integer  "character_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "alignments", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -45,15 +53,26 @@ ActiveRecord::Schema.define(version: 20170106222411) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "backgrounds", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string   "name"
     t.integer  "height"
     t.integer  "weight"
     t.integer  "race_id"
     t.integer  "hero_class_id"
-    t.integer  "experience"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "experience",    default: 0, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "player_name"
+    t.integer  "player_id"
+    t.integer  "alignment_id"
+    t.integer  "background_id"
   end
 
   create_table "hero_classes", force: :cascade do |t|
