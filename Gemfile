@@ -11,6 +11,7 @@ gem 'pg'
 gem 'puma'
 gem 'redis'
 
+gem 'haml-rails'
 gem 'coffee-rails'
 gem 'jbuilder'
 gem 'sass-rails'
@@ -35,4 +36,8 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen'
   gem 'web-console'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-material-design'
 end

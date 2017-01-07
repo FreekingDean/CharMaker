@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106211756) do
+ActiveRecord::Schema.define(version: 20170106222411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20170106211756) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "characters", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "race_id"
+    t.integer  "hero_class_id"
+    t.integer  "experience"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "hero_classes", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -65,6 +76,13 @@ ActiveRecord::Schema.define(version: 20170106211756) do
     t.integer  "languageable_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "primary_abilities", force: :cascade do |t|
@@ -93,6 +111,13 @@ ActiveRecord::Schema.define(version: 20170106211756) do
     t.string   "proficientable_type"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

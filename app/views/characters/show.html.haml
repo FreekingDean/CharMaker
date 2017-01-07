@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @character.name
+%p
+  %strong Height:
+  = @character.height
+%p
+  %strong Weight:
+  = @character.weight
+%p
+  %strong Race:
+  = @character.race_id
+%p
+  %strong Hero class:
+  = @character.hero_class_id
+%p
+  %strong Experience:
+  = @character.experience
+= link_to 'Edit', edit_character_path(@character)
+|
+\#{link_to 'Back', characters_path}
